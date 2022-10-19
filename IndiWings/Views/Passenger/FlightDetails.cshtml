@@ -1,0 +1,278 @@
+﻿@model IEnumerable<IndiWings.Models.Airline>
+@using IndiWings.Models;
+
+@{
+    ViewData["Title"] = "FlightDetails";
+}
+<style>
+   /* .reg {
+        background-image: url(../images/flight4.jpg);
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+    }*/
+    body{
+        font-family: 'SF Pro Rounded';
+    }
+    .table{
+        color:white;
+    }
+
+    .joy{
+        position: absolute;
+        top: 2%;
+        left: 33%;
+        color: white;
+        
+        
+        
+        display: flex;
+        font-weight: bold;
+        z-index:1;
+    }
+
+    .table {
+        color: white;
+        position: absolute;
+        
+        
+        
+        z-index:1;
+    }
+
+    .plane {
+        position: absolute;
+        left: -4%;
+        top: -8%;
+    }
+
+    .menu {
+        position: absolute;
+        top: 4%;
+        left: 73%;
+        display: flex
+    }
+
+    .list1 {
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .list2 {
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .list3 {
+        list-style: none;
+        text-decoration: none;
+        
+    }
+
+    .list1 a {
+        text-decoration: none;
+        color: #fff;
+        
+        font-weight: bold;
+        transition: 0.4s ease;
+    }
+
+    .list2 a {
+        text-decoration: none;
+        color: #fff;
+        
+        font-weight: bold;
+        transition: 0.4s ease;
+    }
+
+    .list3 a {
+        text-decoration: none;
+        color: #fff;
+        
+        font-weight: bold;
+        transition: 0.4s ease;
+    }
+
+    .list1 a:hover {
+        color: #4B4453;
+    }
+
+    .list2 a:hover {
+        color: #4B4453;
+    }
+
+    .list3 a:hover {
+        color: #4B4453;
+    }
+
+    
+    .btn {
+        border: 1px solid #fff;
+        padding: 10px 30px;
+        color: #fff;
+        text-decoration: none;
+        transition: 0.6s ease;
+    }
+
+        .btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+        .text{
+            position:absolute;
+        font-size: 40px;
+        
+        color:white;
+        top: 10%;
+        left: 14%;
+        }
+        .sel{
+            position:absolute;
+        top: 10%;
+        left: 47%;
+        }
+
+    
+
+
+    .btn {
+        border: 1px solid #fff;
+        
+        color: #fff;
+        text-decoration: none;
+        transition: 0.6s ease;
+    }
+
+        .btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+    .pay-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+    }
+    .details-table{
+        position: absolute;
+        top: 20%;
+        left: 3%;
+        height: 600px;
+        width: 1450px;
+        z-index:1;
+        color:white;
+    }
+</style>
+<div class="reg">
+<div class="joy">
+       
+        <h1 style="font-size: 50px;">FLIGHT DETAILS</h1>
+       
+</div>
+    <h4 class="text" style="z-index:1; top:11%; padding:10px 20px 20px 20px">Welcome @ViewBag.Name!!!</h4>
+    @*<div class="sel">
+    <label>Search Flights</label>
+    
+    <select >
+        <option>CHE</option>
+    </select>
+    
+    </div>*@
+
+
+    <table   class="details-table">
+        <thead>
+        <tr>
+            <th>
+                    <h5>@Html.DisplayNameFor(model => model.Departure)</h5>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arrival)
+            </th>
+            <th>
+                    <h5> @Html.DisplayNameFor(model => model.AvailableDates)</h5>
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.FlightTimings)
+            </th>
+            <th>
+                    <h5>  @Html.DisplayNameFor(model => model.Departurecode)</h5>
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.ArrivalCode)
+            </th>
+            <th>
+                    <h5>@Html.DisplayNameFor(model => model.Price)</h5>
+            </th>
+            <th>
+                    @Html.DisplayNameFor(model => model.AvailableSeats)
+            </th>
+            <th>
+                    <h5>  @Html.DisplayNameFor(model => model.Stat)</h5>
+            </th>
+           
+            
+        </tr>
+    </thead>
+    
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arrival)
+            </td>
+            <td>
+                        @Html.DisplayFor(modelItem => item.AvailableDates)
+            </td>
+            <td>
+                        @Html.DisplayFor(modelItem => item.FlightTimings)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Departurecode)
+            </td>
+            <td>
+                        @Html.DisplayFor(modelItem => item.ArrivalCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                        @Html.DisplayFor(modelItem => item.AvailableSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stat)
+            </td>
+          
+            <td class="back">
+                <a asp-action="Payment"asp-controller="Passenger" asp-route-id="@item.Flightid" class="btn">Book</a> |
+                @*<a asp-action="Delete" asp-route-id="@item.Flightid">Delete</a>*@
+            </td>
+        </tr>
+}
+    </tbody>
+       
+  </table>
+</div>
+<div>
+    <img src="/images/flight4.jpg" class="pay-img" />
+</div>
+<div class="plane">
+    <img src="../images/Indiwingsl.png" height=260px />
+</div>
+<div class="menu">
+    <ul class="list1" style="font-size:19px;">
+        <li><a asp-action="Index" asp-controller="Passenger"> HOME </a></li>
+    </ul>
+    <ul class="list2" style="font-size:19px">
+        <li><a asp-controller="Passenger" asp-action="About">ABOUT</a></li>
+    </ul>
+    <ul class="list3" style="font-size:19px">
+        <li class="btn"><a asp-action="Login" asp-controller="Passenger">LOGOUT</a></li>
+    </ul>
+
+</div>

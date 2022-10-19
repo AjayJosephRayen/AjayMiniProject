@@ -1,0 +1,160 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+<style>
+    .aj{
+       /* background-image:url(../images/flight6.jpg);
+        height: 100vh;*/
+        background-size: cover;
+        background-position: center;
+        z-index:1;
+    }
+
+    .row {
+        position:absolute;
+        font-weight: bold;
+        color: white;
+        z-index:1;
+        left: 45%;
+        top: 25%;
+        font-family: Arial;
+
+
+    }
+    .para{
+        position: absolute;
+        top: 60%;
+        text-align:center;
+        color: white;
+        font-family: https://kinsta.com/blog/web-safe-fonts/#10-copperplate-gothic;
+        z-index:1;
+
+    }
+
+    .plane {
+        position: absolute;
+        left: 15%;
+        bottom: 48%;
+        z-index:1;
+
+    }
+
+    .menu {
+        position: absolute;
+        top: 2%;
+        left: 70%;
+        display: flex;
+        z-index:1;
+
+    }
+
+    .list1 {
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .list2 {
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .list3 {
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .list1 a {
+        text-decoration: none;
+        color: #fff;
+        font-family: Arial;
+        font-weight: bold;
+        transition: 0.4s ease;
+    }
+
+    .list2 a {
+        text-decoration: none;
+        color: #fff;
+        font-family: Arial;
+        font-weight: bold;
+        transition: 0.4s ease;
+    }
+
+    .list3 a {
+        text-decoration: none;
+        color: #fff;
+        font-family: Arial;
+        font-weight: bold;
+        transition: 0.4s ease;
+    }
+
+    .list1 a:hover {
+        color: #4B4453;
+    }
+
+    .list2 a:hover {
+        color: #4B4453;
+    }
+
+    .list3 a:hover {
+        color: #4B4453;
+    }
+
+    .con {
+        position: absolute;
+        color: white;
+        top: 94%;
+        left: 42%;
+        z-index:1;
+    }
+
+    .pay-img {
+        position:absolute;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+    }
+
+
+</style>
+<div class="aj">
+    <div class="row">
+        <h1 style="font-size: 80px">PRIVACY POLICY</h1>
+    </div>
+    <div class="plane">
+        <img src="../images/Indiwings.png" height=300px />
+    </div>
+    <div class="para">
+        <p>
+            Launched in 2022, INDIWINGS grew to become the airline of choice for discerning travellers in India. The famous tagline “The Joy of Flying” became synonymous with Jet Airways<br /> and its unrivalled product and service.
+
+            INDIWINGS eventually flew to over 65 destinations in India and across the world, including Europe, the Middle East,<br /> Southeast Asia, and North America, with hubs in Mumbai, Delhi, Bengaluru, and gateways in Amsterdam, Paris, London,<br /> and Abu Dhabi. It operated 124 narrow-body and wide-body aircraft on nearly 1000 domestic <br />and international routes, before suspending operations in April 2019 due to financial headwinds.
+
+            The company underwent a corporate insolvency resolution process under the (Indian)<br /> Insolvency and Bankruptcy Laws in April 2019. After several rounds of bidding,<br /> the Jalan-Kalrock Consortium emerged as the successful resolution applicant for Jet Airways in June 2021,<br /> giving the airline a new lease of life and paving the way for its revival.
+
+
+        </p>
+    </div>
+
+</div>
+<div class="menu">
+    <ul class="list1" style="font-size:19px;">
+        <li><a asp-controller="Passenger" asp-action="Index"> HOME </a></li>
+    </ul>
+    <ul class="list2" style="font-size:19px">
+        <li><a asp-controller="Passenger" asp-action="About">ABOUT</a></li>
+    </ul>
+    <ul class="list3" style="font-size:19px">
+        <li><a asp-area="" asp-controller="Passenger" asp-action="Privacy">PRIVACY POLICY</a></li>
+    </ul>
+
+</div>
+<div>
+    <img src="/images/flight16.jpg" class="pay-img" />
+</div>
+
+<div class="con">
+    &copy; 2022 - IndiWings - <a asp-area="" asp-controller="Passenger" asp-action="Privacy" class="bt">Privacy</a>
+</div>

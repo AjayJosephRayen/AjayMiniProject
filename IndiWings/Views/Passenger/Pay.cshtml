@@ -1,0 +1,164 @@
+﻿@model IEnumerable<IndiWings.Models.Registration>
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+        ViewBag.Name= @HttpContextAccessor.HttpContext.Session.GetString("name");
+    }
+
+<style>
+    body{
+        font-family:'SF Pro Rounded';
+    }
+     .pay-img{
+        position:absolute;
+        top:0;
+        left:0;
+        height:100%;
+        width:100%;
+
+    }
+    .title{
+        z-index:1;
+        color:white;
+        position:absolute;
+       
+        top:13%;
+        left:12%;
+        
+    }
+    .tic{
+        z-index:1;
+        color:white;
+        position:absolute;
+       
+        top:29%;
+        left:35%;
+        
+    }
+    .jny{
+        z-index:1;
+        color:white;
+        position:absolute;
+       
+        top:77%;
+        left:30%;
+        
+    }
+    .plane {
+            position: absolute;
+            left: -4%;
+            bottom: 72%;
+            background-blend-mode: screen;
+        }
+   .con {
+        position: absolute;
+        color: white;
+        top: 94%;
+        left: 42%;
+        z-index:1;
+    }
+     .menu {
+         position: absolute;
+         top: 2%;
+         left: 71%;
+         display: flex
+     }
+
+     .list1 {
+         list-style: none;
+         text-decoration: none;
+     }
+
+     .list2 {
+         list-style: none;
+         text-decoration: none;
+     }
+
+     .list3 {
+         list-style: none;
+         text-decoration: none;
+     }
+
+     .list1 a {
+         text-decoration: none;
+         color: #fff;
+         
+         font-weight: bold;
+         transition: 0.4s ease;
+     }
+
+     .list2 a {
+         text-decoration: none;
+         color: #fff;
+         
+         font-weight: bold;
+         transition: 0.4s ease;
+     }
+
+     .list3 a {
+         text-decoration: none;
+         color: #fff;
+         
+         font-weight: bold;
+         transition: 0.4s ease;
+     }
+
+     .list1 a:hover {
+         color: #4B4453;
+     }
+
+     .list2 a:hover {
+         color: #4B4453;
+     }
+
+     .list3 a:hover {
+         color: #4B4453;
+     }
+     
+    .btn {
+        border: 1px solid #fff;
+        
+        color: #fff;
+        text-decoration: none;
+        transition: 0.6s ease;
+    }
+
+        .btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+</style>
+<body>
+    <div class="title">
+        <h1 style="font-size: 55px">Thankyou @ViewBag.Name, Your Payment is Successfull.</h1> </div><br />
+        <div class="tic" >
+        <h1 style="font-size: 45px"> Ticket Confirmed!!!</h3>
+        </div>
+        <br />
+        <br />
+         <div class="jny">
+        <h1 style="font-size: 45px">Have a Wonderful Journey...</h1>
+         </div>
+    
+    <div>
+    <img src="/images/flight19.jpg" class="pay-img" />
+</div>
+<div class="plane">
+        <img src="../images/Indiwingsl.png" height=280px />
+    </div>
+    <div class="con">
+    &copy; 2022 - IndiWings - <a asp-area="" asp-controller="Passenger" asp-action="Privacy" class="bt">Privacy</a>
+</div>
+<div class="menu">
+        <ul class="list1"style="font-size:19px;">
+        <li><a asp-controller="Passenger" asp-action="FlightDetails"  > BACK TO LIST </a></li>
+        </ul>
+        <ul class="list2" style="font-size:19px">
+            <li><a asp-controller="Passenger" asp-action="Index">HOME</a></li>
+        </ul>
+        <ul class="list3" style="font-size:19px">
+        <li class="btn"><a asp-action="Login" asp-controller="Passenger">LOGOUT</a></li>
+    </ul>
+
+    </div>
+</body>

@@ -1,0 +1,314 @@
+﻿@model IndiWings.Models.Airline
+@{
+    ViewData["Title"] = "Payment";
+}<style>
+     body {
+         font-family: 'SF Pro Rounded';
+     }
+    .sel{
+        position:absolute;
+        width:30px;
+        height:100vh;
+        z-index:1;
+        color:#fff;
+        left:46%;
+        top:48%;
+        
+        
+       
+        /*background-image:url(../images/flight3.jpg);*/
+    }
+    .pay-img{
+        position:absolute;
+        top:0;
+        left:0;
+        height:100%;
+        width:100%;
+
+    }
+    .heat{
+        position:absolute;
+        z-index:1;
+        color:white;
+         font-family: 'SF Pro Rounded';
+         top:8%;
+         left:32%;
+        
+    }
+    
+
+     .back {
+         position: absolute;
+         left: 52%;
+         top: 57%;
+         display: flex;
+        
+         font-weight: bold;
+     }
+
+
+     .btn {
+         border: 1px solid #fff;
+         padding: 10px 30px;
+         color: #fff;
+         text-decoration: none;
+         transition: 0.6s ease;
+     }
+
+         .btn:hover {
+             background-color: #fff;
+             color: #000;
+         }
+
+     .menu {
+         position: absolute;
+         top: 2%;
+         left: 71%;
+         display: flex
+     }
+
+     .list1 {
+         list-style: none;
+         text-decoration: none;
+     }
+
+     .list2 {
+         list-style: none;
+         text-decoration: none;
+     }
+
+     .list3 {
+         list-style: none;
+         text-decoration: none;
+     }
+
+     .list1 a {
+         text-decoration: none;
+         color: #fff;
+         font-family: Arial;
+         font-weight: bold;
+         transition: 0.4s ease;
+     }
+
+     .list2 a {
+         text-decoration: none;
+         color: #fff;
+         
+         font-weight: bold;
+         transition: 0.4s ease;
+     }
+
+     .list3 a {
+         text-decoration: none;
+         color: #fff;
+         
+         font-weight: bold;
+         transition: 0.4s ease;
+     }
+
+     .list1 a:hover {
+         color: #4B4453;
+     }
+
+     .list2 a:hover {
+         color: #4B4453;
+     }
+
+     .list3 a:hover {
+         color: #4B4453;
+     }
+    table{
+         position: absolute;
+         top: 20%;
+        right:4%;
+         height: 110px;
+         width: 1400px;
+         z-index: 1;
+         color: white;
+         
+        
+         
+
+     }
+
+     .priv-row{
+         position:absolute;
+         top:40%;
+         left:44%;
+         width:90px;
+         color:white;
+         
+        
+         
+         
+         
+         z-index:1;
+     }
+    .lkm{
+        position:absolute;
+       
+        width:120px;
+        left:70%;
+    }
+
+     .lect {
+         position: absolute;
+         width: 120px;
+         left: 170%;
+         bottom:94.5%
+     }
+
+     .con {
+         position: absolute;
+         color: white;
+         top: 92%;
+         left: 42%;
+     }
+
+     .bac {
+         position: absolute;
+         left: 40%;
+         top: 57%;
+         display: flex;
+        
+         font-weight: bold;
+     }
+
+
+     .btn {
+         border: 1px solid #fff;
+         padding: 10px 30px;
+         color: #fff;
+         text-decoration: none;
+         transition: 0.6s ease;
+     }
+
+         .btn:hover {
+             background-color: #fff;
+             color: #000;
+         }
+
+   
+</style>
+
+<div class="heat">
+    <h1 style="font-size: 55px">BOOKING PROCESS</h1><br />
+    
+</div>
+    
+<div>
+    <img src="/images/flight15.jpg" class="pay-img" />
+</div>
+    <table rule="all" border="1" class="rum">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Cid)</th>
+                <th> @Html.DisplayNameFor(model => model.Departure)</th>
+                <th> @Html.DisplayNameFor(model => model.Arrival)</th>
+                <th> @Html.DisplayNameFor(model => model.AvailableDates)</th>
+                <th> @Html.DisplayNameFor(model => model.FlightTimings)</th>
+                <th>@Html.DisplayNameFor(model => model.Departurecode)</th>
+                <th> @Html.DisplayNameFor(model => model.ArrivalCode)</th>
+                <th> @Html.DisplayNameFor(model => model.Price)</th>
+                <th> @Html.DisplayNameFor(model => model.AvailableSeats)</th>
+                <th> @Html.DisplayNameFor(model => model.Stat)</th>
+            </tr>
+            <tr>
+                <td> @Html.DisplayFor(model => model.Cid)</td>
+                <td> @Html.DisplayFor(model => model.Departure)</td>
+                <td>@Html.DisplayFor(model => model.Arrival)</td>
+                <td> @Html.DisplayFor(model => model.AvailableDates)</td>
+                <td>@Html.DisplayFor(model => model.FlightTimings)</td>
+                <td> @Html.DisplayFor(model => model.Departurecode)</td>
+                <td> @Html.DisplayFor(model => model.ArrivalCode)</td>
+                <td> @Html.DisplayFor(model => model.Price)</td>
+                <td> @Html.DisplayFor(model => model.AvailableSeats)</td>
+                <td>@Html.DisplayFor(model => model.Stat)</td>
+            </tr>
+        </thead>
+    </table>
+
+
+
+       
+ 
+
+   
+  
+
+<div >
+    
+    <div class="priv-row">
+
+
+        <label><h5>Seats</h5></label>
+              <select onchange="addseats()"id="seat" class="lkm" >
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5 </option>
+                <option value="6"> 6 </option>
+                <option value="7"> 7 </option>
+                <option value="8"> 8 </option>
+                <option value="9"> 9 </option>
+            </select>
+              
+        
+    </div>
+
+
+    <div class="sel">
+    <dl >
+
+            <dt >
+                <h5> @Html.DisplayNameFor(model=>model.Price)</h5>
+            </dt>
+            
+            <dd class="lect">
+                <h4>
+                    <label id="cost">@Model.Price</label>
+                    <input type="hidden" id="hdnprice" value="@Model.Price"  />
+                </h4>
+            </dd>
+
+        </dl>
+    </div>
+</div>
+@*<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Flightid">Edit</a> |
+   
+</div>*@
+
+<div class="back">
+    <a asp-action="PaymentProcess" asp-controller="Passenger" class="btn" style="font-size: 19px;">Proceed to Payment</a>
+</div>
+ <div class="menu">
+        <ul class="list1"style="font-size:19px;">
+        <li><a asp-controller="Passenger" asp-action="Index"> HOME </a></li>
+        </ul>
+        <ul class="list2" style="font-size:19px">
+            <li><a asp-controller="Passenger" asp-action="About">ABOUT</a></li>
+        </ul>
+        <ul class="list3" style="font-size:19px">
+        <li><a asp-area="" asp-controller="Passenger" asp-action="Privacy">PRIVACY POLICY</a></li>
+       </ul>
+
+    </div>
+<div class="bac">
+    <a asp-controller="Passenger" asp-action="FlightDetails" class="btn" style="font-size: 19px;">Back to List</a>
+</div>
+
+<div class="con">
+    &copy; 2022 - IndiWings - <a asp-area="" asp-controller="Passenger" asp-action="Privacy" class="bt">Privacy</a>
+</div>
+
+<script>
+    function addseats()
+    {
+        var cost = document.getElementById("hdnprice").value;
+        var seatno = document.getElementById("seat").value;
+        document.getElementById("cost").innerHTML=cost*seatno;
+
+    }
+</script>

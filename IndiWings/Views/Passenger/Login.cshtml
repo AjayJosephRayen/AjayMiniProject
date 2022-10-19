@@ -1,0 +1,201 @@
+﻿@model IndiWings.Models.Loginpage
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<style>
+    /*.joy {
+        background-image: url(../images/flight2.jpg);
+        height: 100vh;
+        background-size: cover;
+        background-position: center;}*/
+    body {
+        font-family: 'SF Pro Rounded';
+    }
+    .col-md-4{
+        position: absolute;
+        top: 40%;
+        left: 29%;
+        color: white;
+       
+        display: flex;
+        font-weight: bold;
+    }
+
+    .pay-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+       
+    }
+      .joy .aj h4{
+        position: absolute;
+        top: 10%;
+        left: 30%;
+        color: white;
+        
+        display: flex;
+        font-weight: bold;
+        z-index:1;
+        }
+
+     .row {
+        color: white;
+        position: absolute;
+        left: 35%;
+        top: 30%;
+        width:27%;
+    }
+
+    .back {
+        position: absolute;
+        left: 43%;
+        top: 54.5%;
+        display:flex;
+       
+        font-weight: bold;
+    }
+
+
+    .btn {
+        border: 1px solid #fff;
+        padding: 10px 30px;
+        color: #fff;
+        text-decoration: none;
+        transition: 0.6s ease;
+    }
+
+        .btn:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+    .menu {
+        position: absolute;
+        top: 2%;
+        left: 73%;
+        display: flex
+    }
+
+    .list1 {
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .list2 {
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .list3 {
+        list-style: none;
+        text-decoration: none;
+    }
+
+    .list1 a {
+        text-decoration: none;
+        color: #fff;
+      
+        font-weight: bold;
+        transition: 0.4s ease;
+    }
+
+    .list2 a {
+        text-decoration: none;
+        color: #fff;
+      
+        font-weight: bold;
+        transition: 0.4s ease;
+    }
+
+    .list3 a {
+        text-decoration: none;
+        color: #fff;
+        
+        font-weight: bold;
+        transition: 0.4s ease;
+    }
+
+    .list1 a:hover {
+        color: #4B4453;
+    }
+
+    .list2 a:hover {
+        color: #4B4453;
+    }
+
+    .list3 a:hover {
+        color: #4B4453;
+    }
+
+    .plane {
+        position: absolute;
+        left: -3%;
+        top: -8%;
+    }
+
+    .con {
+        position: absolute;
+        color: white;
+        top: 92%;
+        left: 42%;
+    }
+</style>
+<div class="joy">
+    <div class="aj">
+        <h4 style="font-size: 55px">LOGIN - INDIWINGS </h4>
+
+    </div>
+    <div>
+        <img src="/images/flight9.jpg" class="pay-img" />
+    </div>
+  <div class="row">
+    <div class="">
+        <form asp-action="Login">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"><h3>Username</h3></label>
+                <input asp-for="Username" class="form-control" style="opacity:0.8;" />
+                    <span asp-validation-for="Username" class="text-danger" ></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"><h3>Password</h3></label>
+                    <input asp-for="Password" class="form-control" type="password" style="opacity:0.8;" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="LOGIN" class="btn btn-primary" style="background-color:dodgerblue; color:white" />
+            </div>
+        </form>
+    </div>
+</div>
+    <div class="menu">
+        <ul class="list1" style="font-size:19px;">
+            <li><a asp-action="Index" asp-controller="Passenger"> HOME </a></li>
+        </ul>
+        <ul class="list2" style="font-size:19px">
+            <li><a asp-controller="Passenger" asp-action="About">ABOUT</a></li>
+        </ul>
+        <ul class="list3" style="font-size:19px">
+            <li><a asp-controller="Passenger" asp-action="Privacy">PRIVACY POLICY</a></li>
+        </ul>
+
+    </div>
+    <div class="plane">
+        <img src="../images/Indiwingsl.png" height="300px"  />
+    </div>
+<div class="back">
+        <a asp-controller="Passenger" asp-action="Register" class="btn" style="font-size: 19px;">New User? Click here !!</a>
+</div>
+</div>
+<div class="con">
+    &copy; 2022 - IndiWings - <a asp-area="" asp-controller="Passenger" asp-action="Privacy" class="bt">Privacy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

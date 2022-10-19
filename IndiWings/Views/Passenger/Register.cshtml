@@ -1,0 +1,167 @@
+﻿@model IndiWings.Models.Registration
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<style>
+   /* .reg {
+        background-image: url(../images/flight3.jpg);
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+    }*/
+    body {
+        font-family: 'SF Pro Rounded';
+    }
+    .pay-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-size:cover;
+    }
+    .joy {
+        position:absolute;
+        top: 66%;
+        left: 45%;
+        color: white;
+       
+        display: flex;
+        font-weight: bold;
+        z-index:1;
+    }
+
+    .register {
+        position: absolute;
+        top: 2%;
+        left: 35%;
+        color: white;
+        
+        display: flex;
+        font-weight: bold;
+        z-index:1;
+    }
+
+    .row {
+        color: white;
+        position: absolute;
+        left: 10%;
+        top: 15%;
+        width:70%
+    }
+
+    .back {
+        position: absolute;
+        left: 3%;
+        top: 4%;
+    }
+
+    .bk {
+        text-decoration: none;
+        color: #fff;
+        
+        font-weight: bold;
+        transition: 0.4s ease;
+    }
+
+        .bk:hover {
+            color: #4B4453;
+        }
+
+    .plane {
+        position: absolute;
+        left: 80.5%;
+        bottom: 60%;
+        background-blend-mode: screen;
+    }
+
+    .con {
+        position: absolute;
+        color: white;
+        top: 92%;
+        left: 42%;
+    }
+
+</style>
+<div class="reg">
+    <div class="joy">
+        <h1 style="font-size: 60px;">THE JOY IS COMING BACK....</h1>
+    </div>
+    <div class="register">
+        <h4 style="font-size: 55px">REGISTRATION</h4>
+    </div>
+    <div>
+        <img src="/images/flight3.jpg" class="pay-img" />
+    </div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Register">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Fname" class="control-label"></label>
+                <input asp-for="Fname" class="form-control" required />
+                <span asp-validation-for="Fname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Lname" class="control-label"></label>
+                <input asp-for="Lname" class="form-control" />
+                <span asp-validation-for="Lname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" required />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" required />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phonenumber" class="control-label"></label>
+                <input asp-for="Phonenumber" class="form-control" required />
+                <span asp-validation-for="Phonenumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" required />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dob" class="control-label"></label>
+                <input asp-for="Dob" class="form-control"required type="date"/>
+                <span asp-validation-for="Dob" class="text-danger"></span>
+            </div>
+                <div class="form-group">
+                    <label asp-for="Gender">Gender</label><br />
+                    <input type="radio" name="gender" id="M" value="M" required />
+                    <label for="m">Male</label>
+                    <input type="radio" name="gender" id="F" value="F" />
+                    <label for="f">Female</label>
+                </div>
+                <br />
+
+                <div class="form-group">
+                    <input type="submit" value="REGISTER" class="btn btn-primary" style="background-color:dodgerblue;color:#fff" />
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="plane">
+        <img src="../images/Indiwingsl.png" height="360px" />
+    </div>
+
+    <div class="back">
+        <a asp-area="" asp-controller="Passenger" asp-action="Index" class="bk" style="font-size: 27px;">Back to Home</a>
+    </div>
+</div>
+<div class="con">
+    &copy; 2022 - IndiWings - <a asp-area="" asp-controller="Passenger" asp-action="Privacy" class="bt">Privacy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
